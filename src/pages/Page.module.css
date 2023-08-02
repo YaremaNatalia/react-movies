@@ -1,0 +1,139 @@
+/* =========MoviePage============== */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.containerMovieCard {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+}
+
+.movieImg {
+  width: 250px;
+  height: auto;
+}
+
+.movieWrap {
+  display: flex;
+  gap: 30px;
+}
+.movieInfoWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieTitle {
+  font-size: 32px;
+  text-align: start;
+  margin-bottom: 20px;
+}
+
+.moviePretitle {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.containerLink {
+  display: flex;
+  gap: 20px;
+}
+.movieText {
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+.linkItem {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  font-size: 24px;
+}
+
+.linkItem:hover,
+.linkItem:focus {
+  color: #3389e4;
+}
+
+/* ============CAST============ */
+.castPageСontainer {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.castTitle {
+  font-size: 32px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.castList {
+
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.castItem {
+  width: 200px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  padding-top: auto;
+}
+.castImg {
+  margin-top: auto;
+  height: 300px;
+}
+
+.castInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* ============REVIEWS============ */
+
+.reviewsPageContainer {
+  width: 90%;
+}
+
+.reviewsError {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.reviewsTitle {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: 500;
+}
+.reviewsItem {
+  list-style-type: none;
+  padding-top: auto;
+}
+.reviewsAutor {
+  font-weight: 700;
+}
+.reviewsText {
+  font-weight: 400;
+  margin-top: 10px;
+  text-align: justify;
+}

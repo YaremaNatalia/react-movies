@@ -1,0 +1,18 @@
+.btnBack {
+  background-color: #3389e4;
+  color: #fff;
+  padding: 5px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btnBack:hover,
+.btnBack:focus {
+  background-color: #0056b3;
+   color: #000;
+}
