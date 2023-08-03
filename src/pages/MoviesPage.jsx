@@ -3,7 +3,7 @@ import { MoviesList } from 'components/MoviesList';
 import { SearchForm } from 'components/SearchForm';
 import React, { useEffect, useState } from 'react';
 
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { fetchSearchQuery } from 'services/api';
@@ -12,7 +12,6 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQuery = searchParams.get('query');
-  const location = useLocation();
 
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +19,6 @@ const MoviesPage = () => {
 
   const onSubmit = inputValue => {
     setSearchParams({ query: inputValue });
-    setMovies([]);
   };
 
   useEffect(() => {
@@ -54,7 +52,7 @@ const MoviesPage = () => {
         <p className="errorMessage">Whoops, something went wrong: {error}</p>
       )}
       {isLoading && <Loader />}
-      {movies.length > 0 && <MoviesList movies={movies} location={location} />}
+      {movies.length > 0 && <MoviesList movies={movies} />}
     </div>
   );
 };

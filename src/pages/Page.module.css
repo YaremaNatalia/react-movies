@@ -1,3 +1,10 @@
+.textError {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 /* =========MoviePage============== */
 .container {
   display: flex;
@@ -73,7 +80,6 @@
 }
 
 .castList {
-
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
@@ -103,13 +109,6 @@
 
 .reviewsPageContainer {
   width: 90%;
-}
-
-.reviewsError {
-  font-size: 25px;
-  text-align: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .reviewsTitle {

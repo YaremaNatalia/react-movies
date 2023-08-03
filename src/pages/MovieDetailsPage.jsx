@@ -13,6 +13,7 @@ import {
 import ButtonBack from 'components/ButtonBack/ButtonBack';
 import { fetchMovieDetails } from 'services/api';
 import { IMAGE_URL_W500 } from 'services/api';
+import imgNotFound from '../images/not_found.jpg';
 
 import css from './Page.module.css';
 
@@ -51,9 +52,8 @@ const MovieDetails = () => {
 
   const { title, release_date, poster_path, vote_average, overview, genres } =
     movieDet ?? {};
-    const defaultImg =
-      '<https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg>';
-  const poster = poster_path || defaultImg;
+  // const defaultImg =
+  //   'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
   const releaseYear = release_date ? release_date.split('-')[0] : '';
 
   return (
@@ -71,7 +71,9 @@ const MovieDetails = () => {
             <div className={css.movieWrap}>
               <img
                 className={css.movieImg}
-                src={`${IMAGE_URL_W500}${poster}`}
+                src={
+                  poster_path ? `${IMAGE_URL_W500}${poster_path}` : imgNotFound
+                }
                 alt={title}
               />
               <div className={css.movieInfoWrap}>

@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import css from './MovieCard.module.css';
 import { IMAGE_URL_W500 } from 'services/api';
 import PropTypes from 'prop-types';
+import imgNotFound from '../../images/not_found.jpg';
 
-export const MovieCard = ({ poster_path, title, id, location }) => {
-  const defaultImg =
-    '<https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg>';
-  const poster = poster_path  || defaultImg;
+export const MovieCard = ({ poster_path, title, id }) => {
+  const location = useLocation();
+  // const defaultImg =
+  //   'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
+
   return (
     <Link
       className={css.movieLink}
@@ -17,7 +19,7 @@ export const MovieCard = ({ poster_path, title, id, location }) => {
       <li>
         <img
           className={css.movieCardImg}
-          src={`${IMAGE_URL_W500}${poster}`}
+          src={poster_path ? `${IMAGE_URL_W500}${poster_path}` : imgNotFound}
           alt={title}
         />
         <div className={css.movieCardInfo}>
@@ -30,9 +32,8 @@ export const MovieCard = ({ poster_path, title, id, location }) => {
 
 MovieCard.propTypes = {
   id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   poster_path: PropTypes.string,
-  location: PropTypes.object.isRequired,
 };
 
 export default MovieCard;

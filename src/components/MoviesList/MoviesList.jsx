@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import css from './MoviesList.module.css';
 import { MovieCard } from 'components/MovieCard';
 
-export const MoviesList = ({ movies, location }) => {
+export const MoviesList = ({ movies }) => {
   return (
     <ul className={css.movieList}>
       {movies.map(({ id, poster_path, title }) => (
@@ -13,7 +13,6 @@ export const MoviesList = ({ movies, location }) => {
           poster_path={poster_path}
           title={title}
           id={id}
-          location={location}
         ></MovieCard>
       ))}
     </ul>
@@ -21,6 +20,11 @@ export const MoviesList = ({ movies, location }) => {
 };
 
 MoviesList.propTypes = {
-  movies: PropTypes.array.isRequired,
-  location: PropTypes.object.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+      poster_path: PropTypes.string,
+    })
+  ).isRequired,
 };

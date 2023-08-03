@@ -5,6 +5,7 @@ import { fetchMovieCast } from 'services/api';
 import { IMAGE_URL_W500 } from 'services/api';
 import css from './Page.module.css';
 import { Loader } from 'components/Loader';
+import imgNotFound from '../images/not_found.jpg';
 
 const CastPage = () => {
   const { movieId } = useParams();
@@ -31,16 +32,20 @@ const CastPage = () => {
     fetchCast();
   }, [movieId]);
 
-  const defaultImg =
-    '<https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg>';
+  // const defaultImg =
+  //   'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 
-  return (
+  return cast.length === 0 ? (
+    <h3 className={css.textError}>
+      We don't have any cast information for this movie.
+    </h3>
+  ) : (
     <div>
       {error && (
         <p className="errorMessage">Whoops, something went wrong: {error}</p>
       )}
       {isLoading && <Loader />}
-      {cast && (
+      {cast.length > 0 && (
         <div className={css.castPageСontainer}>
           <h2 className={css.castTitle}>Cast</h2>
           <ul className={css.castList}>
@@ -51,7 +56,7 @@ const CastPage = () => {
                   src={
                     profile_path
                       ? `${IMAGE_URL_W500}${profile_path}`
-                      : defaultImg
+                      : imgNotFound
                   }
                   alt={original_name}
                 />

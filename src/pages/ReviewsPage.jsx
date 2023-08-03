@@ -29,9 +29,7 @@ const ReviewsPage = () => {
   }, [movieId]);
 
   return reviews.length === 0 ? (
-    <h3 className={css.reviewsError}>
-      We don't have any reviews for this movie.
-    </h3>
+    <h3 className={css.textError}>We don't have any reviews for this movie.</h3>
   ) : (
     <div className={css.reviewsPageContainer}>
       <h2 className={css.reviewsTitle}>Reviews</h2>

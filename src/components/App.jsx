@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from './Loader';
@@ -7,7 +7,6 @@ import { Loader } from './Loader';
 const HomePage = lazy(() => import('pages/HomePage'));
 const MoviesPage = lazy(() => import('pages/MoviesPage'));
 const MovieDetailsPage = lazy(() => import('pages/MovieDetailsPage'));
-
 
 export const App = () => {
   return (
@@ -28,6 +27,7 @@ export const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/movies" element={<MoviesPage />} />
             <Route path="/movies/:movieId/*" element={<MovieDetailsPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
       </main>

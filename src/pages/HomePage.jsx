@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 import { Loader } from 'components/Loader';
 import { MoviesList } from 'components/MoviesList';
@@ -9,7 +9,7 @@ const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const location = useLocation();
+
 
   useEffect(() => {
     const fetchMoviesData = async () => {
@@ -37,7 +37,7 @@ const HomePage = () => {
       {error && (
         <p className="errorMessage">Whoops, something went wrong: {error}</p>
       )}
-      {movies.length > 0 && <MoviesList movies={movies} location={location} />}
+      {movies.length > 0 && <MoviesList movies={movies} />}
       {isLoading && <Loader />}
     </div>
   );

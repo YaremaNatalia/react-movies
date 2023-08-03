@@ -30,7 +30,6 @@ export const SearchForm = ({ onSubmit }) => {
       <input
         className={css.searchFormInput}
         type="text"
-        //   name="search"
         autoComplete="off"
         autoFocus
         placeholder="Enter movie name..."
